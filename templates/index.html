@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pipe Cutting Optimizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Pipe Cutting File</h1>
+        <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+            
+            <!-- Name and Address Inputs -->
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" required>
+            
+            <!-- Drag-and-Drop File Upload Box -->
+            <div class="upload-box" id="upload-box">
+                <p id="upload-message">CSV, XL files are allowed</p>
+                <input type="file" name="file" id="file" accept=".csv, .xls, .xlsx" required>
+            </div>
+        
+            <button type="submit">Upload</button>
+        </form>        
+    </div>
+
+    <script>
+        // JavaScript for Drag-and-Drop functionality
+        const uploadBox = document.getElementById('upload-box');
+        const fileInput = document.getElementById('file');
+        const uploadMessage = document.getElementById('upload-message');
+
+        // Highlight the upload box when dragging over it
+        uploadBox.addEventListener('dragover', function(event) {
+            event.preventDefault();
+            uploadBox.classList.add('dragover');
+            uploadMessage.textContent = 'Drop the file here'; // Change the message when dragging over
+        });
+
+        // Remove highlight when not dragging
+        uploadBox.addEventListener('dragleave', function() {
+            uploadBox.classList.remove('dragover');
+            uploadMessage.textContent = 'CSV, XL files are allowed'; // Reset message when leaving the box
+        });
+
+        // Handle the file drop
+        uploadBox.addEventListener('drop', function(event) {
+            event.preventDefault();
+            uploadBox.classList.remove('dragover');
+            const files = event.dataTransfer.files;
+            if (files.length) {
+                fileInput.files = files;
+                uploadMessage.textContent = `${files[0].name} uploaded`; // Show the file name after dropping
+            }
+        });
+
+        // Allow clicking the box to trigger file input
+        uploadBox.addEventListener('click', function() {
+            fileInput.click();
+        });
+
+        // Update the message when a file is selected through file input
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                uploadMessage.textContent = `${fileInput.files[0].name} uploaded`; // Show the file name after selection
+            }
+        });
+    </script>
+</body>
+</html>

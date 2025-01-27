@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimization Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Optimization Results</h1>
+
+        <!-- Customer Information -->
+        <h3>Customer Information</h3>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Address:</strong> {{ address }}</p>
+
+        <!-- Visualization Section -->
+        <h3>Pipe Cutting Visualization</h3>
+        <img src="{{ url_for('static', filename='cutting_visualization.png') }}" alt="Pipe Cutting Visualization" class="result-img1">
+
+        <h3>Cut Distribution Histogram</h3>
+        <img src="{{ url_for('static', filename='cut_distribution_histogram.png') }}" alt="Cut Distribution Histogram" class="result-img">
+ 
+        <h3>Waste vs. Used Material (Pie Chart)</h3>
+        <img src="{{ url_for('static', filename='pipe_usage_pie_chart.png') }}" alt="Waste vs Used Material Pie Chart" class="result-img">
+
+        <!-- Summary Section -->
+        <h3>Summary</h3>
+        <p><strong>Cutting Efficiency:</strong> {{ efficiency }}%</p>
+        <p><strong>Total Pipes Used:</strong> {{ total_pipes_used }}</p>
+
+        <!-- Cutting Plan Table -->
+        <h3>Cutting Plan</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock Pipe</th>
+                    <th>Used Lengths</th>
+                    <th>Remaining Length</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plan in cutting_plan %}
+                <tr>
+                    <td>{{ plan.stock_pipe }}</td>
+                    <td>{{ plan.used_lengths | join(', ') }}</td>
+                    <td>{{ plan.remaining_length }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Total Remaining Length</h3>
+        <p>The total remaining length across all pipes is: {{ total_remaining_length }} mm</p>
+
+
+        <!-- Export Options -->
+        <div class="export-options">
+            <h3>Export Results</h3>
+            <a href="{{ url_for('export_csv') }}" class="btn">Download as CSV</a>
+            <a href="{{ url_for('export_pdf') }}" class="btn">Download as PDF</a>
+        </div>
+
+        <!-- Back to Upload -->
+        <br><br>
+        <a href="{{ url_for('index') }}" class="btn">Upload Another File</a>
+    </div>
+</body>
+</html>

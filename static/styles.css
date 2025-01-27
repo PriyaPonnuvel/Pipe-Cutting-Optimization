@@ -1,0 +1,249 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f9fc; /* Light blue-gray background */
+    color: #333;
+    text-align: center;
+}
+
+/* Container for centering content */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white; /* White background for the content */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1 {
+    color: #1e3a8a; /* Dark blue color */
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #1e3a8a;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* Styling for the drag-and-drop area */
+.drop-zone {
+    width: 95%;
+    height: 200px;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #e2e8f0; /* Light gray background */
+    border: 2px dashed #1e3a8a; /* Blue dashed border */
+    border-radius: 8px;
+    color: #1e3a8a; /* Blue text */
+    font-size: 25px;
+    cursor: pointer;
+    
+    /* Centering the text horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Change the drop zone appearance on drag-over */
+.drop-zone.dragover {
+    background-color: #cbd5e1; /* Slightly darker gray background */
+    border-color: #2563eb; /* Darker blue border */
+}
+
+/* Input field and button styling */
+input[type="text"], input[type="file"], button {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 95%;
+    font-size: 16px;
+}
+
+/* Button styling */
+button {
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+/* Button styling for hover */
+button[type="submit"]:hover {
+    background-color: #2563eb; /* Blue background on hover */
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    input[type="text"], input[type="file"], button {
+        width: 100%;  /* Make form inputs take full width on mobile */
+    }
+}
+
+/* Image styling */
+img {
+    max-width: 100%; /* Make images responsive */
+    height: auto;    /* Maintain aspect ratio */
+    margin-top: 20px;
+    border-radius: 4px; /* Optional: add rounded corners to images */
+}
+/* General Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff; /* Primary button color */
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.btn:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Active State */
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific Colors */
+.btn-upload {
+    background-color: #007bff; /* Green for upload */
+}
+
+.btn-upload:hover {
+    background-color: #0056b3;
+}
+
+.btn-csv {
+    background-color: #007bff; /* Teal for CSV download */
+}
+
+.btn-csv:hover {
+    background-color: #0056b3;
+}
+
+.btn-pdf {
+    background-color: #007bff; /* Red for PDF download */
+}
+
+.btn-pdf:hover {
+    background-color: #0056b3;
+}
+
+/* Centering the table */
+table {
+    margin: 0 auto;  /* This centers the table horizontally */
+    width: 80%;      /* You can adjust the width as needed */
+    border-collapse: collapse;  /* Optional: for cleaner table borders */
+}
+
+/* Optional: Style the table header */
+table th {
+    text-align: left;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+}
+
+/* Optional: Style the table cells */
+table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Optional: Add some spacing between the table and surrounding content */
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.export-options {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.export-options .btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.export-options .btn:hover {
+    background-color: #0056b3;
+}
+.upload-box {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #1e3a8a;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.upload-box.dragover {
+    border-color: #2563eb;
+    background-color: #2563eb;
+}
+.upload-box p {
+    text-align: center;
+    font-size: 18px;
+    color: #2563eb;
+}
+.upload-box input[type="file"] {
+    display: none;
+}
+/* Style other form elements */
+form {
+    max-width: 500px;
+    margin: auto;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}

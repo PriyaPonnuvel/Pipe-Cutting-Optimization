@@ -1,0 +1,12 @@
+Flask
+reportlab
+matplotlib
+seaborn
+pandas
+numpy
+python-dotenv
+Werkzeug
+wkhtmltopdf
+xlrd
+openpyxl
+pdfkit
